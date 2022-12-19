@@ -20,11 +20,13 @@ public class VariablesTheme {
         System.out.println("Используется лицензионная система: true or false? - " + licensedSystem);
         
         System.out.println("\n\t2. Расчет стоимости товара со скидкой\n");
-        int sumPrice = 100 + 200;
+        int penPrice = 100;
+        int bookPrice = 200;
+        int sumPrice = penPrice + bookPrice;
         double totalDiscount = 0.11d;
         System.out.println("Сумма скидки " + sumPrice * totalDiscount + " руб.");
-        System.out.println("Общая стоимость товаров со скидкой " + (sumPrice - sumPrice * 
-                totalDiscount) + " руб.");
+        System.out.println("Общая стоимость товаров со скидкой " + 
+                (sumPrice - sumPrice * totalDiscount) + " руб.");
         
         System.out.println("\n\t3. Вывод слова JAVA\n");
         System.out.println("\t   J   a  v     v  a");
@@ -33,35 +35,23 @@ public class VariablesTheme {
         System.out.println("\t JJ a     a  V  a     a");
         
         System.out.println("\n\t4. Вывод min и max значений целых числовых типов\n");
-        byte numByte = 127;
-        System.out.println("Тип byte: " + numByte);
-        // делаем инкремент (numByte = 127 увеличиваем на 1, переполняем тип byte)
-        numByte++; 
-        System.out.println("После инкремента " + numByte);
-        // делаем декремент, возвращаем numByte первоначальное значение 127
-        numByte--;
-        // делаем декремент (уменьшаем numByte = 127 на 1, нет переполнения, обычная арифметика)
-        numByte--;
-        System.out.println("После декремента: " + numByte);
-        short numShort = 32767;
-        System.out.println("Тип short: " + numShort);
-        numShort++;
-        System.out.println("После инкремента: " + numShort);
-        numShort--;
-        System.out.println("После декремента: " + numShort);
-        int numInt = 2147483647;
-        System.out.println("Тип int: " + numInt);
-        numInt++;
-        System.out.println("После инкремента: " + numInt);
-        numInt--;
-        System.out.println("После декремента: " + numInt);
-        long numLong = 9223372036854775807L;
-        System.out.println("Тип long: " + numLong);
-        numLong++;
-        System.out.println("После инкремента: " + numLong);
-        numLong--;
-        System.out.println("После декремента: " + numLong);
-    
+        byte maxByte = 127;
+        System.out.println("Тип byte: " + maxByte);
+        System.out.println("После инкремента: " + maxByte++);
+        System.out.println("После декремента: " + maxByte--);
+        short maxShort = 32767;
+        System.out.println("Тип short: " + maxShort);
+        System.out.println("После инкремента: " + maxShort++);
+        System.out.println("После декремента: " + maxShort--);
+        int maxInt = 2147483647;
+        System.out.println("Тип int: " + maxInt);
+        System.out.println("После инкремента: " + maxInt++);
+        System.out.println("После декремента: " + maxInt--);
+        long maxLong = 9223372036854775807L;
+        System.out.println("Тип long: " + maxLong);
+        System.out.println("После инкремента: " + maxLong++);
+        System.out.println("После декремента: " + maxLong--);
+        
         System.out.println("\n\t5. Перестановка значений переменных\n");
         int num1 = 2;
         int num2 = 5;
@@ -72,55 +62,62 @@ public class VariablesTheme {
         num2 = num3;
         System.out.println("Перемена мест с помощью третьей переменной: " + num1 + " и " + num2);
         // поменяйте значения переменных местами с помощью арифметических операций
-        num1 = num1 + num2;
+        num1 += num2;
         num2 = num1 - num2;
-        num1 = num1 - num2;
+        num1 -= num2;
         System.out.println("Перемена мест с помощью арифметики: " + num1 + " и " + num2);
         // перемена значений переменных местами с помощью побитовой операции
-        num1 = num1^num2;
-        num2 = num1^num2;
-        num1 = num1^num2;
+        num1 ^= num2;
+        num2 = num1 ^ num2;
+        num1 ^= num2;
         System.out.println("Перемена мест с помощью побитовой операции ^: " + num1 + " и " + num2);
         
         System.out.println("\n\t6. Вывод символов и их кодов\n");
-        char thirtyFive = 35;
-        char thirtyEight = 38;
-        char sixtyFour = 64;
-        char ninetyFour = 94;
-        char ninetyFive = 95;
-        System.out.println("Код символа " + (byte)thirtyFive + " - Cимвол ASCII-таблицы " +
-                thirtyFive);
-        System.out.println("Код символа " + (byte)thirtyEight + " - Cимвол ASCII-таблицы " +
-                thirtyEight);
-        System.out.println("Код символа " + (byte)sixtyFour + " - Cимвол ASCII-таблицы " +
-                sixtyFour);
-        System.out.println("Код символа " + (byte)ninetyFour + " - Cимвол ASCII-таблицы " +
-                ninetyFour);
-        System.out.println("Код символа " + (byte)ninetyFive + " - Cимвол ASCII-таблицы " +
-                ninetyFive);
+        char sym35 = '#';
+        char sym38 = '&';
+        char sym68 = '@';
+        char sym94 = '^';
+        char sym95 = '_';
+        System.out.println("Код символа " + (byte) sym35 + 
+                " - Cимвол ASCII-таблицы " + sym35);
+        System.out.println("Код символа " + (byte) sym38 + 
+                " - Cимвол ASCII-таблицы " + sym38);
+        System.out.println("Код символа " + (byte) sym68 + 
+                " - Cимвол ASCII-таблицы " + sym68);
+        System.out.println("Код символа " + (byte) sym94 + 
+                " - Cимвол ASCII-таблицы " + sym94);
+        System.out.println("Код символа " + (byte) sym95 + 
+                " - Cимвол ASCII-таблицы " + sym95);
         
         System.out.println("\n\t7. Вывод в консоль ASCII-арт Дюка\n");
-        char rightSlash = '/';
-        char leftSlash = '\\';
+        char slash = '/';
+        char backslash = '\\';
         char roundBracketOpen = '(';
         char roundBracketClose = ')';
-        System.out.println("    " + rightSlash + leftSlash);
-        System.out.println("   " + rightSlash + "  " + leftSlash);
-        System.out.println("  " + rightSlash + ninetyFive + roundBracketOpen + " " + 
-                roundBracketClose + leftSlash);
-        System.out.println(" " + rightSlash + "      " + leftSlash);
-        System.out.println("" + rightSlash + ninetyFive + ninetyFive + ninetyFive + 
-                ninetyFive + rightSlash + leftSlash + ninetyFive + ninetyFive + 
-                leftSlash);
+        System.out.println("    " + slash + backslash);
+        System.out.println("   " + slash + "  " + backslash);
+        System.out.println("  " + slash + sym95 + roundBracketOpen + " " + 
+                roundBracketClose + backslash);
+        System.out.println(" " + slash + "      " + backslash);
+        System.out.println("" + slash + sym95 + sym95 + sym95 + 
+                sym95 + slash + backslash + sym95 + sym95 + 
+                backslash);
         
         System.out.println("\n\t8. Вывод количества сотен, десятков и единиц числа\n");
-        short onetwothree = 123;
-        short sot = (short)(onetwothree/100);
-        short des = (short)((onetwothree-100)/10);
-        short ed = (short)((onetwothree-100)%10);
-        System.out.println("Число 123 содержит: \n" + sot + " сотню\n" + des + " десятка\n" + ed + 
-                " единицы");
-        System.out.println("Сумма его цифр = " + (sot+des+ed));
-        System.out.println("А произведение = " + sot*des*ed);
+        int onetwothree = 123;
+        int hundred = (int) (onetwothree/100);
+        int dozen = (int) ((onetwothree)/10%10);
+        int unit = (int) ((onetwothree)%10);
+        System.out.println("Число 123 содержит: \n" + hundred + " сотню\n" + dozen + 
+                " десятка\n" + unit + " единицы");
+        System.out.println("Сумма его цифр = " + (hundred + dozen + unit));
+        System.out.println("А произведение = " + hundred * dozen * unit);
+        
+        System.out.println("\n\t9. Вывод времени\n");
+        int time = 86399;
+        int hour = time / 3600;
+        int minute = time % 3600 / 60;
+        int second = minute % 60;
+        System.out.println(hour + ":" + minute + ":" + second);
     }
 }
