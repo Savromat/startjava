@@ -23,10 +23,10 @@ public class VariablesTheme {
         int penPrice = 100;
         int bookPrice = 200;
         int sumPrice = penPrice + bookPrice;
-        double totalDiscount = 0.11d;
-        System.out.println("Сумма скидки " + sumPrice * totalDiscount + " руб.");
+        double discount = 0.11d;
+        System.out.println("Сумма скидки " + sumPrice * discount + " руб.");
         System.out.println("Общая стоимость товаров со скидкой " + 
-                (sumPrice - sumPrice * totalDiscount) + " руб.");
+                (sumPrice - sumPrice * discount) + " руб.");
         
         System.out.println("\n\t3. Вывод слова JAVA\n");
         System.out.println("\t   J   a  v     v  a");
@@ -37,20 +37,20 @@ public class VariablesTheme {
         System.out.println("\n\t4. Вывод min и max значений целых числовых типов\n");
         byte maxByte = 127;
         System.out.println("Тип byte: " + maxByte);
-        System.out.println("После инкремента: " + maxByte++);
-        System.out.println("После декремента: " + maxByte--);
+        System.out.println("После инкремента: " + ++maxByte);
+        System.out.println("После декремента: " + --maxByte);
         short maxShort = 32767;
         System.out.println("Тип short: " + maxShort);
-        System.out.println("После инкремента: " + maxShort++);
-        System.out.println("После декремента: " + maxShort--);
+        System.out.println("После инкремента: " + ++maxShort);
+        System.out.println("После декремента: " + --maxShort);
         int maxInt = 2147483647;
         System.out.println("Тип int: " + maxInt);
-        System.out.println("После инкремента: " + maxInt++);
-        System.out.println("После декремента: " + maxInt--);
+        System.out.println("После инкремента: " + ++maxInt);
+        System.out.println("После декремента: " + --maxInt);
         long maxLong = 9223372036854775807L;
         System.out.println("Тип long: " + maxLong);
-        System.out.println("После инкремента: " + maxLong++);
-        System.out.println("После декремента: " + maxLong--);
+        System.out.println("После инкремента: " + ++maxLong);
+        System.out.println("После декремента: " + --maxLong);
         
         System.out.println("\n\t5. Перестановка значений переменных\n");
         int num1 = 2;
@@ -104,10 +104,10 @@ public class VariablesTheme {
                 backslash);
         
         System.out.println("\n\t8. Вывод количества сотен, десятков и единиц числа\n");
-        int onetwothree = 123;
-        int hundred = (int) (onetwothree/100);
-        int dozen = (int) ((onetwothree)/10%10);
-        int unit = (int) ((onetwothree)%10);
+        int srcNum = 123;
+        int hundred = srcNum / 100;
+        int dozen = srcNum / 10 % 10;
+        int unit = srcNum % 10;
         System.out.println("Число 123 содержит: \n" + hundred + " сотню\n" + dozen + 
                 " десятка\n" + unit + " единицы");
         System.out.println("Сумма его цифр = " + (hundred + dozen + unit));
