@@ -106,12 +106,12 @@ public class VariablesTheme {
         System.out.println("\n\t8. Вывод количества сотен, десятков и единиц числа\n");
         int srcNum = 123;
         int hundred = srcNum / 100;
-        int dozen = srcNum / 10 % 10;
-        int unit = srcNum % 10;
-        System.out.println("Число 123 содержит: \n" + hundred + " сотню\n" + dozen + 
-                " десятка\n" + unit + " единицы");
-        System.out.println("Сумма его цифр = " + (hundred + dozen + unit));
-        System.out.println("А произведение = " + hundred * dozen * unit);
+        int twos = srcNum / 10 % 10;
+        int ones = srcNum % 10;
+        System.out.println("Число 123 содержит: \n" + hundred + " сотню\n" + twos + 
+                " десятка\n" + ones + " единицы");
+        System.out.println("Сумма его цифр = " + (hundred + twos + ones));
+        System.out.println("А произведение = " + hundred * twos * ones);
         
         System.out.println("\n\t9. Вывод времени\n");
         int time = 86399;
