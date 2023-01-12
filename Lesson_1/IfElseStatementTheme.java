@@ -1,6 +1,6 @@
 public class IfElseStatementTheme {
     
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         System.out.println("\n1. Перевод псевдокода на язык Java");
         int age = 15;
         if (age > 20) {
@@ -8,7 +8,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Ave, гастат!");
         }
-        boolean  male = false;
+        boolean male = false;
         if (!male) {
             System.out.println("Амазонки рулят!");
         } else {
@@ -20,8 +20,7 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Рост выше среднего");
         }
-        String name = "Ivan";
-        char firstLetterName = name.charAt(0);
+        char firstLetterName = "Ivan".charAt(0);
         if (firstLetterName == 'M') {
             System.out.println("Первая буква имени - " + firstLetterName);
         } else if (firstLetterName == 'I') {
@@ -31,46 +30,53 @@ public class IfElseStatementTheme {
         }
         
         System.out.println("\n2. Поиск max и min числа");
-        int num1 = 25;
-        int num2 = 48;
+        int num1 = 48;
+        int num2 = 25;
         if (num1 > num2) {
             System.out.println("Число num1 = " + num1 + " - max, число num2 = " + num2 + " - min");
-        } else if (num1 == num2) {
-            System.out.println("Числа равны");
         } else if (num1 < num2) {
             System.out.println("Число num1 = " + num1 + " - min, число num2 = " + num2 + " - max");
+        } else {
+            System.out.println("Числа равны");
         }
         
         System.out.println("\n3. Проверка числа");
-        int varNumber = -7;
-        System.out.println("Исходное число " + varNumber);
-        if (varNumber == 0) {
-        } else if (varNumber % 2 == 0 && varNumber > 0) {
-            System.out.println("Число " + varNumber + " четное и положительное");
-        } else if (varNumber % 2 != 0 && varNumber > 0) {
-            System.out.println("Число " + varNumber + " нечетное и положительное");
-        } else if (varNumber % 2 == 0 && varNumber < 0) {
-            System.out.println("Число " + varNumber + " четное и отрицательное");
-        } else if (varNumber % 2 != 0 && varNumber < 0) {
-            System.out.println("Число " + varNumber + " нечетное и отрицательное");
+        int number = 9;
+        System.out.println("Исходное число " + number);
+        if (number == 0) {
+            System.out.println("Число равно " + number);
+        } else if (number % 2 == 0) {
+            System.out.print("Число " + number + " четное и ");
+               if (number < 0) {
+                    System.out.print("отрицательное");
+                } else if (number > 0) {
+                    System.out.print("положительное");
+                }
+        } else if (number % 2 != 0) {
+            System.out.print("Число " + number + " нечетное и ");
+                if (number < 0) {
+                    System.out.print("отрицательное");
+                } else if (number > 0) {
+                    System.out.println("положительное");
+                }
         }
         
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int srcNum1 = 487;
-        int srcNum2 = 685;
+        int srcNum1 = 123;
+        int srcNum2 = 124;
         System.out.println("Исходные числа " + srcNum1 + " и " + srcNum2);
         if (srcNum1 / 100 == srcNum2 / 100) {
             System.out.println("Одинаковые цифры в первом разряде " + srcNum1 / 100 + " " 
                 + srcNum2 / 100);
-        } else if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
+            if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
             System.out.println("Одинаковые цифры во втором разряде " + srcNum1 / 10 % 10 + " " 
                 + srcNum2 / 10 % 10);
-        } else if (srcNum1 % 10 == srcNum2 % 10) {
-            System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
-                + srcNum2 % 10);
-        } else {
-            System.out.println("Равные цифры в каждом разряде не найдены");
-        }
+                    if (srcNum1 % 10 == srcNum2 % 10) {
+                    System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
+                        + srcNum2 % 10);
+                }
+            }
+        } 
         
         System.out.println("\n5. Определение символа по его коду");
         char symbol = '\u0057';
@@ -86,24 +92,21 @@ public class IfElseStatementTheme {
         
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int sum = 300_000;
-        float percent1 = 0.05F;
-        float percent2 = 0.07F;
-        float percent3 = 0.10F;
         System.out.println("Сумма вклада " + sum);
         if (sum < 100_000) {
-            int sum1 = (int) (sum * percent1);
-            System.out.println("Начисленный % " + sum1);
-            System.out.println("Итоговая сумма с % " + (sum + sum1));
+            float percent = 0.05F;
+            System.out.println("Начисленный % - " + percent * 100 + " %");
+            System.out.println("Итоговая сумма с % " + (int) (sum + sum * percent));
         } else if (sum >= 100_000 && sum <= 300_000) {
-            int sum2 = (int) (sum * percent2);
-            System.out.println("Начисленный % " + sum2);
-            System.out.println("Итоговая сумма с % " + (sum + sum2));
+            float percent = 0.07F;
+            System.out.println("Начисленный % - " + percent * 100 + " %");
+            System.out.println("Итоговая сумма с % " + (int) (sum + sum * percent));
         } else if (sum > 300_000) {
-            int sum3 = (int) (sum * percent3);
-            System.out.println("Начисленный % " + sum3);
-            System.out.println("Итоговая сумма с % " + (sum + sum3));
+            float percent = 0.10F;
+            System.out.println("Начисленный % " + percent * 100 + " %");
+            System.out.println("Итоговая сумма с % " + (int) (sum + sum * percent));
         }
-    
+        
         System.out.println("\n7. Определение оценки по предметам");
         float history = 0.59F;
         float programming = 0.91F;
