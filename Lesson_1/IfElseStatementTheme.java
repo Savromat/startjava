@@ -41,44 +41,40 @@ public class IfElseStatementTheme {
         }
         
         System.out.println("\n3. Проверка числа");
-        int number = 3;
+        int number = -2;
         System.out.println("Исходное число " + number);
         if (number == 0) {
             System.out.println("Число равно " + number);
         } else {
             if (number % 2 == 0) {
                 System.out.print("четное ");
-            } else if (number % 2 != 0) {
+            } else {
                 System.out.print("нечетное");
             } 
             if (number > 0) {
                 System.out.println(" положительное");
-            } else if (number < 0) {
+            } else {
                 System.out.println(" отрицательное");
             }
         }
         
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int srcNum1 = 124;
-        int srcNum2 = 123;
+        int srcNum1 = 123;
+        int srcNum2 = 124;
         System.out.println("Исходные числа " + srcNum1 + " и " + srcNum2);
         if (srcNum1 / 100 == srcNum2 / 100) {
             System.out.println("Одинаковые цифры в первом разряде " + srcNum1 / 100 + " " 
                     + srcNum2 / 100);
+            if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
+                System.out.println("Одинаковые цифры во втором разряде " + srcNum1 / 10 % 10 + " " 
+                        + srcNum2 / 10 % 10);
+            }
+            if (srcNum1 % 10 == srcNum2 % 10) {
+                System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
+                        + srcNum2 % 10);
+            }
         } else {
-            System.out.println("Равных цифр в первом разряде нет");
-        }
-        if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
-            System.out.println("Одинаковые цифры во втором разряде " + srcNum1 / 10 % 10 + " " 
-                    + srcNum2 / 10 % 10);
-        } else {
-            System.out.println("Равных цифр во втором разряде нет");
-        }
-        if (srcNum1 % 10 == srcNum2 % 10) {
-            System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
-                    + srcNum2 % 10);
-        } else {
-            System.out.println("Равных цифр в третьем разряде нет");
+            System.out.println("Равных цифр нет");
         }
         
         System.out.println("\n5. Определение символа по его коду");
@@ -107,22 +103,22 @@ public class IfElseStatementTheme {
         System.out.println("Итоговая сумма с % " + (int) (sum + sum * percent));
         
         System.out.println("\n7. Определение оценки по предметам");
-        float procentHistory = 0.59F;
-        float procentProgramming = 0.91F;
+        float percentHistory = 0.59F;
+        float percentProgramming = 0.91F;
         int gradeHistory = 2;
         int gradeProgramming = 2;
-        if (procentHistory > 0.6 && procentHistory <= 0.73) {
+        if (percentHistory > 0.6 && percentHistory <= 0.73) {
             gradeHistory = 3;
-        } else if (procentHistory > 0.73 && procentHistory <= 0.91) {
+        } else if (percentHistory > 0.73 && percentHistory <= 0.91) {
             gradeHistory = 4;
-        } else if (procentHistory > 0.91) {
+        } else if (percentHistory > 0.91) {
             gradeHistory = 5;
         }
-        if (procentProgramming > 0.6 && procentProgramming <= 0.73) {
+        if (percentProgramming > 0.6 && percentProgramming <= 0.73) {
             gradeProgramming = 3;
-        } else if (procentProgramming > 0.73 && procentProgramming <= 0.91) {
+        } else if (percentProgramming > 0.73 && percentProgramming <= 0.91) {
             gradeProgramming = 4;
-        } else if (procentProgramming > 0.91) {
+        } else if (percentProgramming > 0.91) {
             gradeProgramming = 5;
         }
         System.out.println(gradeHistory + " - История");
@@ -130,7 +126,7 @@ public class IfElseStatementTheme {
         System.out.println("Средний балл оценок по предметам " + 
                 (gradeHistory + gradeProgramming) / 2);
         System.out.println("Средний % по предметам " + 
-                100 * (procentHistory + procentProgramming) / 2 + "%");
+                100 * (percentHistory + percentProgramming) / 2 + "%");
         
         System.out.println("\n8. Расчет прибыли за год");
         int rent = 5000;
@@ -139,49 +135,44 @@ public class IfElseStatementTheme {
         int profitYear = (sale - netCost - rent) * 12;
         if (profitYear > 0) {
             System.out.println("Прибыль за год: +" + profitYear + " руб.");
-        } else if (profitYear < 0) {
+        } else {
             System.out.println("Прибыль за год: " + profitYear + " руб.");
         }
         
         System.out.println("\n9. Подсчет количества банкнот");
         int sumRequest = 567;
-        // имеем банкноты номиналом 100, 10 и 1
-        int hundred = 100;
-        int twos = 10;
-        int ones = 1;
-        System.out.println("Номиналы банкнот " + hundred + ", " + twos + ", " + ones);
+        System.out.println("Номиналы банкнот 100, 10, 1");
+        
         // рассчитываем требуемое по запросу кол-во банкнот для выдачи 567
-        int numHundredRequest = sumRequest / hundred;
-        int numTwosRequest = sumRequest / twos % 10;
+        int numHundredRequest = sumRequest / 100;
+        int numTwosRequest = sumRequest / 10 % 10;
         int numOnesRequest = sumRequest % 10;
-        // указываем фактическое кол-во банкнот в банкомате 10 по 100, 5 по 10, 50 по 1
+        System.out.println("Требуемое количество банкнот: " + numHundredRequest + " по 100, " + 
+                numTwosRequest + " по 10, " + numOnesRequest + " по 1");
+        
+        // фактическое кол-во банкнот в банкомате 10 по 100, 5 по 10, 50 по 1
         int numHundredFact = 10;
         int numTwosFact = 5;
         int numOnesFact = 50;
-        if (numHundredRequest <= numHundredFact && numTwosRequest <= numTwosFact 
-            && numOnesRequest <= numOnesFact) {
-            System.out.println("Требуемое количество: " + 
-                    numHundredRequest + " банкнот по " + hundred + ", " + 
-                    numTwosRequest + " банкнот по " + twos + ", " +
-                    numOnesRequest + " банкнот по " + ones);
-        } else if (numHundredRequest <= numHundredFact && numTwosRequest > numTwosFact 
-            && numOnesRequest <= numOnesFact) {
-            // рассчитываем требуемое количество банкнот по 1 на замену
-            int onesChange = (numTwosRequest - numTwosFact) * 10;
-            System.out.println("Требуемое количество: " + 
-                    numHundredRequest + " банкнот по " + hundred + ", " + 
-                    numTwosFact + " банкнот по " + twos + ", " +
-                    (numOnesRequest + onesChange) + " банкнот по " + ones);
-            // находим сумму, фактически выданную банкоматом
-            int sumFact = numHundredRequest * hundred + numTwosFact * twos + 
-                (numOnesRequest + onesChange) * ones;
-            System.out.println("Выдаваемая сумма: " + sumFact + " USD");
-                    // проверяем равенство суммы по запросу и суммы, выданной по факту
-                    if (sumRequest != sumFact) {
-                        System.out.println("Ошибка");
-                    }
+        
+        if (numHundredRequest <= numHundredFact) {
+            System.out.print("Выданное количество банкнот: " + numHundredRequest + " по 100, ");
+            if (numTwosRequest <= numTwosFact) {
+                System.out.print(numTwosRequest + " по 10, ");
+            } else {
+                System.out.print(numTwosFact + " по 10, ");
+            }
+            if (numOnesRequest <= numOnesFact - (numTwosRequest - numTwosFact) * 10) {
+                System.out.println(numOnesRequest + (numTwosRequest - numTwosFact) * 10 + " по 1");
+            } else {
+                System.out.println("Банкнот не хватает");
+            }
         } else {
             System.out.println("Банкнот не хватает");
         }
+
+        int sumFact = numHundredRequest * 100 + numTwosFact * 10 + 
+            (numTwosRequest - numTwosFact) * 10 + numOnesRequest;
+        System.out.println("Выдаваемая сумма: " + sumFact); 
     }
 }
