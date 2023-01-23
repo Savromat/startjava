@@ -59,21 +59,23 @@ public class IfElseStatementTheme {
         }
         
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int srcNum1 = 123;
+        int srcNum1 = 222;
         int srcNum2 = 124;
         System.out.println("Исходные числа " + srcNum1 + " и " + srcNum2);
         if (srcNum1 / 100 == srcNum2 / 100) {
             System.out.println("Одинаковые цифры в первом разряде " + srcNum1 / 100 + " " 
                     + srcNum2 / 100);
-            if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
-                System.out.println("Одинаковые цифры во втором разряде " + srcNum1 / 10 % 10 + " " 
-                        + srcNum2 / 10 % 10);
-            }
-            if (srcNum1 % 10 == srcNum2 % 10) {
-                System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
-                        + srcNum2 % 10);
-            }
-        } else {
+        }
+        if (srcNum1 / 10 % 10 == srcNum2 / 10 % 10) {
+            System.out.println("Одинаковые цифры во втором разряде " + srcNum1 / 10 % 10 + " " 
+                    + srcNum2 / 10 % 10);
+        }
+        if (srcNum1 % 10 == srcNum2 % 10) {
+            System.out.println("Одинаковые цифры в третьем разряде " + srcNum1 % 10 + " " 
+                    + srcNum2 % 10);
+        }
+        if (srcNum1 / 100 != srcNum2 / 100 && srcNum1 / 10 % 10 != srcNum2 / 10 % 10 &&
+            srcNum1 % 10 != srcNum2 % 10) {
             System.out.println("Равных цифр нет");
         }
         
@@ -147,32 +149,28 @@ public class IfElseStatementTheme {
         int numHundredRequest = sumRequest / 100;
         int numTwosRequest = sumRequest / 10 % 10;
         int numOnesRequest = sumRequest % 10;
-        System.out.println("Требуемое количество банкнот: " + numHundredRequest + " по 100, " + 
-                numTwosRequest + " по 10, " + numOnesRequest + " по 1");
-        
+                
         // фактическое кол-во банкнот в банкомате 10 по 100, 5 по 10, 50 по 1
         int numHundredFact = 10;
         int numTwosFact = 5;
         int numOnesFact = 50;
         
         if (numHundredRequest <= numHundredFact) {
-            System.out.print("Выданное количество банкнот: " + numHundredRequest + " по 100, ");
-            if (numTwosRequest <= numTwosFact) {
+            System.out.print("Требуемое количество банкнот: " + numHundredRequest + " по 100, ");
+        }
+        if (numTwosRequest <= numTwosFact) {
                 System.out.print(numTwosRequest + " по 10, ");
             } else {
                 System.out.print(numTwosFact + " по 10, ");
-            }
-            if (numOnesRequest <= numOnesFact - (numTwosRequest - numTwosFact) * 10) {
-                System.out.println(numOnesRequest + (numTwosRequest - numTwosFact) * 10 + " по 1");
-            } else {
+                if (numOnesRequest <= numOnesFact - (numTwosRequest - numTwosFact) * 10) {
+                    System.out.println(numOnesRequest + (numTwosRequest - numTwosFact) * 10 + " по 1");
+                } else {
                 System.out.println("Банкнот не хватает");
-            }
-        } else {
-            System.out.println("Банкнот не хватает");
+                }
         }
 
         int sumFact = numHundredRequest * 100 + numTwosFact * 10 + 
             (numTwosRequest - numTwosFact) * 10 + numOnesRequest;
-        System.out.println("Выдаваемая сумма: " + sumFact); 
+        System.out.println("Выдаваемая сумма: " + sumFact);
     }
 }
