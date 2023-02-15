@@ -7,9 +7,9 @@ public class CyclesTheme {
         int sumOdd = 0;
         do {
             if (range % 2 == 0) {
-                sumEven = sumEven + range;
+                sumEven += range;
             } else {
-                sumOdd = sumOdd + range;
+                sumOdd += range;
             }
             range++;
         } while (range <= 21);
@@ -20,46 +20,27 @@ public class CyclesTheme {
         int num1 = 10;
         int num2 = 5;
         int num3 = -1;
-        int maxNum = 0;
-        int minNum = 0;
         
         if (num1 > num2 && num1 > num3) {
-            maxNum = num1;
-        }
-        if (num2 > num1 && num2 > num3) {
-            maxNum = num2;
-        }
-        if (num3 > num1 && num3 > num2) {
-            maxNum = num3;
-        }
-        
-        if (num1 < num2 && num1 < num3) {
-            minNum = num1;
-        }
-        if (num2 < num1 && num2 < num3) {
-            minNum = num2;
-        }
-        if (num3 < num1 && num3 < num2) {
-            minNum = num3;
-        }
-        
-        for (int i = (maxNum - 1); i > minNum; i--) {
-            System.out.print(i + " ");
+            if (num2 > num3) {
+                for (int i = (num1 - 1); i > num3; i--) {
+                System.out.print(i + " ");
+                }    
+            }
         }
         
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int num = 1234;
-        int numReverse = 0;
+        int digit = 0;
         int sum = 0;
                 
         while (num > 0) {
-            numReverse = num % 10;
-            sum = sum + numReverse;
-            System.out.print(numReverse + " ");
+            digit = num % 10;
+            sum += digit;
+            System.out.print(digit + " ");
             num /= 10;
         }
-        System.out.println();
-        System.out.println(sum);
+        System.out.println("\n" + sum);
         
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
         int originalNumber = 0;
@@ -67,13 +48,14 @@ public class CyclesTheme {
             System.out.printf("%5d", i);
         }
         System.out.println();
-        for (int j = 11; j < 21; j += 2) {
-            System.out.printf("%5d", j);
+        
+        for (int i = 11; i < 21; i += 2) {
+            System.out.printf("%5d", i);
         }
+        
         System.out.println();
-        for (int k = 21; k < 24; k += 2) {
-            System.out.printf("%5d", k);
-        }
+        System.out.printf("%5d%5d", 21, 23);
+        
         System.out.printf("%5d%5d%5d", originalNumber, originalNumber, originalNumber);
         System.out.println();
         
@@ -104,7 +86,7 @@ public class CyclesTheme {
         System.out.println(triangle);
         int triangleCounter = 0;
         while (triangleCounter < 4) {
-            triangle = triangle + "#";
+            triangle += "#";
             System.out.println(triangle);
             triangleCounter++;
         }
@@ -113,7 +95,7 @@ public class CyclesTheme {
         String cornerUp = "$";
         System.out.println(cornerUp);
         do {
-            cornerUp = cornerUp + "$" ;
+            cornerUp += "$" ;
             System.out.println(cornerUp);
             cornerUpCounter++;
         } while (cornerUpCounter < 2);
@@ -121,7 +103,7 @@ public class CyclesTheme {
         int cornerDownCounter = 0;
         String cornerDown = "$";
         do {
-            cornerDown = cornerDown + "$";
+            cornerDown += "$";
             System.out.println(cornerDown);
             cornerDownCounter++;
         } while (cornerDownCounter < 1);
