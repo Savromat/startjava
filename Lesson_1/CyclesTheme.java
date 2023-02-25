@@ -2,40 +2,52 @@ public class CyclesTheme {
     
     public static void main(String[] args) {
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
-        int range = -10;
+        int counter = -10;
         int sumEven = 0;
         int sumOdd = 0;
         do {
-            if (range % 2 == 0) {
-                sumEven += range;
+            if (counter % 2 == 0) {
+                sumEven += counter;
             } else {
-                sumOdd += range;
+                sumOdd += counter;
             }
-            range++;
-        } while (range <= 21);
+            counter++;
+        } while (counter <= 21);
         System.out.println("В промежутке [-10, 21] сумма четных чисел = " + sumEven + 
                 ", а нечетных = " + sumOdd);
         
         System.out.println("\n2. Вывод чисел в интервале (min и max) в порядке убывания");
-        int num1 = 10;
+        int num1 = -1;
         int num2 = 5;
-        int num3 = -1;
-        
+        int num3 = 10;
+        int numEndInterval;
+        int numMin;
         if (num1 > num2 && num1 > num3) {
-            if (num2 > num3) {
-                for (int i = (num1 - 1); i > num3; i--) {
-                System.out.print(i + " ");
-                }    
-            }
+            numEndInterval = num1;
+        } else if (num2 > num1 && num2 > num3) {
+            numEndInterval = num2;
+        } else {
+            numEndInterval = num3;
+        }
+
+        if (num1 < num2 && num1 < num3) {
+            numMin = num1;
+        } else if (num2 < num1 && num2 < num3) {
+            numMin = num2;
+        } else {
+            numMin = num3;
+        }
+
+        for (int i = (numEndInterval - 1); i > numMin; i--) {
+            System.out.print(i + " ");
         }
         
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
         int num = 1234;
-        int digit = 0;
         int sum = 0;
-                
+        
         while (num > 0) {
-            digit = num % 10;
+           int digit = num % 10;
             sum += digit;
             System.out.print(digit + " ");
             num /= 10;
@@ -43,36 +55,39 @@ public class CyclesTheme {
         System.out.println("\n" + sum);
         
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
-        int originalNumber = 0;
-        for (int i = 1; i < 11; i += 2) {
+        int numStartInterval = 1;
+        int numFinishInterval = 24;
+        for (int i = numStartInterval; i < numFinishInterval; i += 2) {
             System.out.printf("%5d", i);
+            numStartInterval = numStartInterval + 1;
+                if (numStartInterval > 5 && numStartInterval < 7) {
+                    System.out.println("");
+                }
+                if (numStartInterval > 10 && numStartInterval < 12) {
+                    System.out.println("");
+                }
+                if (numStartInterval > 15 && numStartInterval < 17) {
+                    System.out.println("");
+                }
         }
-        System.out.println();
+        for (int j = 1; j < numFinishInterval / 5; j++) {
+                        System.out.printf("%5d", 0);
+                    }
         
-        for (int i = 11; i < 21; i += 2) {
-            System.out.printf("%5d", i);
-        }
-        
-        System.out.println();
-        System.out.printf("%5d%5d", 21, 23);
-        
-        System.out.printf("%5d%5d%5d", originalNumber, originalNumber, originalNumber);
-        System.out.println();
-        
-        System.out.println("\n5. Проверка количества двоек на четность/нечетность");
-        int number = 3242592;
-        int numberCounter = 0;
-        while (number >= 1) {
-            if (number % 10 == 2) {
-                numberCounter = numberCounter + 1;
+        System.out.println("\n\n5. Проверка количества двоек на четность/нечетность");
+        int numTwos = 3242592;
+        int numCounter = 0;
+        while (numTwos >= 1) {
+            if (numTwos % 10 == 2) {
+                numCounter = numCounter + 1;
             }
-            number /= 10; 
+            numTwos /= 10; 
         }
-        if (numberCounter % 2 == 0) {
-            System.out.println("Число 3242592" + " содержит " + numberCounter + 
+        if (numCounter % 2 == 0) {
+            System.out.println("Число 3242592" + " содержит " + numCounter + 
                     " (четное) количество двоек");
         } else {
-            System.out.println("Число 3242592" + " содержит " + numberCounter + 
+            System.out.println("Число 3242592" + " содержит " + numCounter + 
                     " (нечетное) количество двоек");
         }
        
@@ -124,29 +139,29 @@ public class CyclesTheme {
         
         System.out.println("\n8. Проверка, является ли число палиндромом");
         String palindrome = "1234321";
-        int numberFirst = 0;
-        int numberEnd = palindrome.length() - 1;
-        int counter = 0; 
+        int numFirst = 0;
+        int numEnd = palindrome.length() - 1;
+        int countPalindrome = 0; 
 
-        while (numberFirst < numberEnd) {
-            if (palindrome.charAt(numberFirst) == palindrome.charAt(numberEnd)) {
-                counter += 1;
+        while (numFirst < numEnd) {
+            if (palindrome.charAt(numFirst) == palindrome.charAt(numEnd)) {
+                countPalindrome += 1;
             }
-            numberFirst++;
-            numberEnd--;
-            if (counter == (numberFirst + numberEnd) / 2) {
+            numFirst++;
+            numEnd--;
+            if (countPalindrome == (numFirst + numEnd) / 2) {
                 System.out.println("Число " + palindrome + " является палиндромом");
             }
         }
         
         System.out.println("\n9. Определение, является ли число счастливым");
-        int numberHappy = 456456;
-        int FirstThreeNumbers = numberHappy / 1000;
-        int LastThreeNumbers = numberHappy % 1000;
-        int sum1 = FirstThreeNumbers / 100 + FirstThreeNumbers / 10 % 10 + FirstThreeNumbers % 10;
-        int sum2 = LastThreeNumbers /100 + LastThreeNumbers / 10 % 10 + LastThreeNumbers % 10;
-        System.out.println("Сумма цифр " + FirstThreeNumbers + " = " + sum1);
-        System.out.println("Сумма цифр " + LastThreeNumbers + " = " + sum2);
+        int numHappy = 456456;
+        int FirstThreeNum = numHappy / 1000;
+        int LastThreeNum = numHappy % 1000;
+        int sum1 = FirstThreeNum / 100 + FirstThreeNum / 10 % 10 + FirstThreeNum % 10;
+        int sum2 = LastThreeNum /100 + LastThreeNum / 10 % 10 + LastThreeNum % 10;
+        System.out.println("Сумма цифр " + FirstThreeNum + " = " + sum1);
+        System.out.println("Сумма цифр " + LastThreeNum + " = " + sum2);
         
         if (sum1 == sum2) {
             System.out.println("Число является счастливым");
